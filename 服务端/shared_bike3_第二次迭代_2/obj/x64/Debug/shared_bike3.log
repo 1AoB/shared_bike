@@ -1,0 +1,61 @@
+﻿  正在清理远程项目目录
+  正在验证源
+  正在将源远程复制到“192.168.52.128”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  bike.pb.cpp
+  BusProcessor.cpp
+F:\shared_bike3\sqlconnection.h(64,18): warning : conversion to ‘i32 {aka int}’ from ‘my_ulonglong {aka long long unsigned int}’ may alter its value [-Wconversion]
+F:\shared_bike3\sqlconnection.h(64,18): warning :    return m_pRes->row_count;
+F:\shared_bike3\sqlconnection.h(64,18): warning :           ~~~~~~~~^~~~~~~~~
+  DispatchMsgService.cpp
+F:\shared_bike3\DispatchMsgService.cpp(92,28): warning : conversion to ‘i32 {aka int}’ from ‘int_t {aka long int}’ may alter its value [-Wconversion]
+F:\shared_bike3\DispatchMsgService.cpp(92,28): warning :      return thread_task_post(tp, task);
+F:\shared_bike3\DispatchMsgService.cpp(92,28): warning :             ~~~~~~~~~~~~~~~~^~~~~~~~~~
+  events_def.cpp
+  eventtype.cpp
+  ievent.cpp
+  iniconfig.cpp
+F:\shared_bike3\configdef.h(24,25): warning : conversion to ‘short unsigned int’ from ‘unsigned int’ may alter its value [-Wconversion]
+F:\shared_bike3\configdef.h(24,25): warning :          this->db_port = db_port;
+F:\shared_bike3\configdef.h(24,25): warning :                          ^~~~~~~
+F:\shared_bike3\iniconfig.cpp(42,71): warning : conversion to ‘short unsigned int’ from ‘int’ may alter its value [-Wconversion]
+  Logger.cpp
+  main.cpp
+F:\shared_bike3\configdef.h(24,25): warning : conversion to ‘short unsigned int’ from ‘unsigned int’ may alter its value [-Wconversion]
+F:\shared_bike3\configdef.h(24,25): warning :          this->db_port = db_port;
+F:\shared_bike3\configdef.h(24,25): warning :                          ^~~~~~~
+F:\shared_bike3\sqlconnection.h(64,18): warning : conversion to ‘i32 {aka int}’ from ‘my_ulonglong {aka long long unsigned int}’ may alter its value [-Wconversion]
+F:\shared_bike3\sqlconnection.h(64,18): warning :    return m_pRes->row_count;
+F:\shared_bike3\sqlconnection.h(64,18): warning :           ~~~~~~~~^~~~~~~~~
+  NetworkInterface.cpp
+F:\shared_bike3\NetworkInterface.cpp(90,30): warning : conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+F:\shared_bike3\NetworkInterface.cpp(90,30): warning :      sin.sin_port = htons(port);
+F:\shared_bike3\NetworkInterface.cpp(90,30): warning :                               ^
+F:\shared_bike3\NetworkInterface.cpp(98,1): warning : no return statement in function returning non-void [-Wreturn-type]
+F:\shared_bike3\NetworkInterface.cpp(98,1): warning :  }
+F:\shared_bike3\NetworkInterface.cpp(98,1): warning :  ^
+F:\shared_bike3\NetworkInterface.cpp(160,35): warning : conversion to ‘i32 {aka int}’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+F:\shared_bike3\NetworkInterface.cpp(160,35): warning :          i32 len = bufferevent_read(bev, cs->header + cs->read_header_len, MESSAGE_HEADER_LEN - cs->read_header_len);
+F:\shared_bike3\NetworkInterface.cpp(160,35): warning :                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+F:\shared_bike3\NetworkInterface.cpp(200,35): warning : conversion to ‘i32 {aka int}’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+F:\shared_bike3\NetworkInterface.cpp(200,35): warning :          i32 len = bufferevent_read(bev, cs->read_buf + cs->read_message_len, cs->message_len - cs->read_message_len);
+F:\shared_bike3\NetworkInterface.cpp(200,35): warning :                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+F:\shared_bike3\NetworkInterface.cpp(24,1): warning : control reaches end of non-void function [-Wreturn-type]
+F:\shared_bike3\NetworkInterface.cpp(24,1): warning :  }
+F:\shared_bike3\NetworkInterface.cpp(24,1): warning :  ^
+  sqlconnection.cpp
+F:\shared_bike3\sqlconnection.h(64,18): warning : conversion to ‘i32 {aka int}’ from ‘my_ulonglong {aka long long unsigned int}’ may alter its value [-Wconversion]
+F:\shared_bike3\sqlconnection.h(64,18): warning :    return m_pRes->row_count;
+F:\shared_bike3\sqlconnection.h(64,18): warning :           ~~~~~~~~^~~~~~~~~
+F:\shared_bike3\sqlconnection.cpp(87,36): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
+F:\shared_bike3\sqlconnection.cpp(87,36): warning :      return mysql_real_escape_string(mysql_,pDest,pSrc,nSrcLen);//��Դsrcת�嵽Ŀ���Ӵ�dest
+F:\shared_bike3\sqlconnection.cpp(87,36): warning :             ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  thread_cond.cpp
+  thread_mutex.cpp
+  thread_pool.cpp
+  user_event_handler.cpp
+  正在链接对象
+  shared_bike3.vcxproj -> F:\shared_bike3\bin\x64\Debug\shared_bike3.out
