@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<script>window.BMAP_AUTHENTIC_KEY = '7Cc5Kmn672miPzG4qQhvlOrERcXMMinq';</script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?type=webgl&v=1.0&ak=vXgmhc4iYQAHEam2Su1XcGtnGwF3GS74"></script>
+	<script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=vXgmhc4iYQAHEam2Su1XcGtnGwF3GS74"></script>
+    <script type="text/javascript" src="https://bj.bcebos.com/v1/mapopen/github/BMapGLLib/Lushu/src/Lushu.min.js"></script>
+	
+	<script type="text/javascript" src="https://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+	<link rel="stylesheet" href="https://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+	
+	<script type="text/javascript" src="qwebchannel.js"></script>
+
+<head>
+	<!--百度地图搜索框下拉样式-->
+	<style type="text/css">
+		.tangram-suggestion-main {
+			z-index: 999999;
+		}
+	</style>
+
+    <meta charset="utf-8" />
+    <title>bikeMapWindow</title>
+	<style>
+        html, body, #allmap{
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+        }
+        #result{
+			padding: 7px 10px;
+			position: fixed;
+			top: -13px;
+			left: 20px;
+			width: 300px;
+			background: #fff;
+			box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);
+			border-radius: 7px;
+			z-index: 99;
+				
+        }
+        #cityName{
+			width:230px;
+			margin-right:10px;
+			height:25px;
+			border: 1px solid rgba(27, 142, 236, 0.5);
+			border-radius: 5px;
+        }
+        #result button{
+			border: 1px solid rgba(27, 142, 236, 0.5);
+			border-radius: 5px;
+			background: rgba(27, 142, 236, 0.5);
+			color: #fff
+        }
+	</style>
+	
+	<style type="text/css">
+		 body,
+			html {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				font-family: "微软雅黑";
+			}
+			
+		ul li {list-style: none;}
+		#map_canvas {
+			width: 100%;
+			height: 100%;
+		}
+		/*----------------------------------*/
+		#bikemsg{
+			padding: 7px 10px;
+			position: fixed;
+			bottom: 49px;
+			left: 32px;
+			width: 291.9px;
+			background: #fff;
+			box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);  
+			border-radius: 12px;
+			/*z-index: 99;*/
+        }
+        #bike-id{
+			padding: 7px 10px;
+			position: fixed;
+			bottom: 73px;
+			left: 270px;        
+			/*background: #fff;*/
+			/*box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);*/           
+        }
+ 		#bike-status{
+			padding: 7px 10px;
+			position: fixed;
+			bottom: 115px;
+			left: 29px; 
+			color:#3a79b5;
+			/*background: #fff;*/
+			/*box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);*/           
+        }
+        #bike-electric{
+			padding: 7px 10px;
+			position: fixed;
+			bottom: 93px;
+			left: 29px; 
+			color:#3a79b5;
+			/*background: #fff;*/
+			/*box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);*/           
+        }
+    	#bike-lateUse{
+			padding: 7px 10px;
+			position: fixed;
+			bottom: 71px;
+			left: 29px; 
+			color:#3a79b5;
+			/*background: #fff;*/
+			/*box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);*/           
+		}
+      	#bikeimg{
+    	  	z-index: 999;				
+			margin-bottom:0.7rem;
+			margin-left: 14.0rem;
+     	}
+		/*----------------------------------*/
+		#btns {
+			/*z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面 */
+			z-index: 999;
+			position: fixed;
+			bottom: 1.0rem;
+			margin-left: 2.0rem;
+			padding-left: 0;
+			border-radius: .25rem;
+			display: flex;
+			box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);
+			text-align:center;
+		}
+		#btns li{
+			border-right: 1px solid #d2d2d2;
+			padding:10px 10px;
+			height: 100%;
+			background-color: #fff;
+			cursor: pointer;
+			color:#3a79b5;
+		}
+		#btns li:hover {
+			background-color: rgba(27, 142, 236, 0.8);
+			color: #fff;
+		}
+		
+		
+		#addBtn {
+			z-index: 999;
+			position: fixed;
+			bottom: 0.5rem;
+			margin-left: rem;
+			padding-left: 0;
+			border-radius: .25rem;
+			display: flex;
+			box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);
+			text-align:center;
+		}
+		#addBtn li{
+				border-right: 1px solid #d2d2d2;
+				padding:10px 10px;
+				height: 100%;
+				background-color: #fff;
+				cursor: pointer;
+				color:#3a79b5;
+			}
+		#addBtn li:hover {
+				background-color: rgba(27, 142, 236, 0.8);
+				color: #fff;
+			}	
+	</style>
+</head>
+
+<body>
+	
+    <div id="map_canvas"></div>
+    <ul id='result'>
+        城市名: <input type="text" id="cityName"/>
+        <!--<button onclick="theLocation()">查询</button>-->
+	</ul>
+	<!--HTML无序列表-->
+	<div id="bike">
+		<div id="bikeinfo">  
+		  <ul id='bikemsg'>
+			<li id="bike-id">  #1  </li>
+			<li id="bike-status">  单车状态：正常 </li>
+			<li id="bike-electric">剩余电量：80% </li>
+			<li id="bike-lateUse"> 上次使用时间：2022-4-9 </li>
+			<li>
+			  <img src="https://img-blog.csdnimg.cn/361bb0da0c4a4e46a5d599fbf620f429.png#pic_center"
+				   id = "bikeimg" alt="Pulpit rock" width="50" height="50">           
+			</li>
+  
+		  </ul>
+		</div>
+		  <!--<p id="bikeName">共享单车</p>     
+		  <p id="bikeMsg">单车编号：001 </p>-->     
+		<ul id='btns'>
+  
+			<li id="start">扫码用车</li>
+			<li id="stop">扫码还车</li>
+			<li id="pause">暂 停</li>
+			<li id="run">开始骑行</li>
+		</ul>
+	</div>
+	<!--<ul id='addBtn'>
+		#=<li id="addBikeBtn">添加单车</li>
+	</ul>-->
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+	//--------------------------------------------------- 百度地图初始化，控件初始化  ------------------------------------------------
+	var map = new BMapGL.Map('map_canvas');
+	map.enableScrollWheelZoom();
+	map.centerAndZoom(new BMapGL.Point(113.08339796, 28.251693842), 13);
+
+	//var m_city = "北京";
+	//map.centerAndZoom(new BMapGL.Point(116.404, 39.915), 13);
+	//map.centerAndZoom(m_city, 15);                      // 初始化地图,设置中心点坐标和地图级别          
+	map.enableScrollWheelZoom(true);	
+	
+	//设置地图3D视角
+	//map.setHeading(64.5);
+	//map.setTilt(73);
+	/*
+	showOverlayContainer()	none	显示覆盖物
+	hideOverlayContainer()	none	不显示覆盖物
+	*/
+
+	//map.showOverlayContainer();
+	var navi3DCtrl = new BMapGL.NavigationControl3D({
+		anchor: BMAP_ANCHOR_TOP_RIGHT,
+		offset: new BMapGL.Size(-3, 60)
+	});  // 添加3D控件
+    map.addControl(navi3DCtrl);
+	// 添加比例尺控件
+	var scaleCtrl = new BMapGL.ScaleControl({
+		anchor:BMAP_ANCHOR_BOTTOM_RIGHT
+	});  
+    map.addControl(scaleCtrl);
+	// 添加缩放控件
+    var zoomCtrl = new BMapGL.ZoomControl({
+		offset: new BMapGL.Size(10, 160)
+	});  
+    map.addControl(zoomCtrl);
+	    // 创建城市选择控件
+	var cityControl = new BMapGL.CityListControl({
+		// 控件的停靠位置（可选，默认左上角）
+		anchor: BMAP_ANCHOR_TOP_LEFT,
+		// 控件基于停靠位置的偏移量（可选）
+		offset: new BMapGL.Size(10, 15)
+	});
+	// 将控件添加到地图上
+	//map.addControl(cityControl);
+
+	//BMAP_ANCHOR_TOP_LEFT		控件将定位到地图的左上角
+	//BMAP_ANCHOR_TOP_RIGHT		控件将定位到地图的右上角
+	//BMAP_ANCHOR_BOTTOM_LEFT	控件将定位到地图的左下角
+	//BMAP_ANCHOR_BOTTOM_RIGHT	控件将定位到地图的右下角
+	// 创建定位控件
+	//-----------------------------------------------------------自定义一个定位控件类-------------------------------------------------------
+	function LocationControl() {
+		this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;
+		this.defaultOffset = new BMapGL.Size(8, 80)
+	}
+	//通过JavaScript的prototype属性继承于BMap.Control
+	LocationControl.prototype = new BMapGL.Control();
+
+	//自定义控件必须实现自己的initialize方法，并且将控件的DOM元素返回
+	//在本方法中创建个div元素作为控件的容器，并将其添加到地图容器中
+	LocationControl.prototype.initialize = function(map) {
+		 //创建一个dom元素
+		var div = document.createElement('div');
+		 //添加文字说明
+		//div.appendChild(document.createTextNode('放大2级'));
+		// 设置样式
+		div.style.backgroundImage = "url(https://img-blog.csdnimg.cn/9e991e7d5a264f25a2ec493e3456c4cc.png#pic_center)";
+		div.style.height = "17px";
+		div.style.width = "13px";
+		div.style.cursor = "pointer";
+		div.style.padding = "7px 10px";
+		div.style.boxShadow = "0 2px 6px 0 rgba(27, 142, 236, 0.5)";
+		div.style.borderRadius = "14px";
+		div.style.backgroundColor = "transparent";
+		// 绑定事件,点击一次放大两级
+		div.onclick = function(e){
+			//alert('您的位置：' + my_point.latlng.lng + ',' + my_point.latlng.lat);
+			if(my_pointMarker)
+			{
+				map.addOverlay(my_pointMarker);//将标记对象添加到地图上
+				my_pointMarker=null;
+			}
+			map.panTo(new BMapGL.Point(my_point.lng, my_point.lat));//将地图中心店移动到定位地点 
+			//new BMap.Point(113.262232, 23.154345)
+		}
+		// 添加DOM元素到地图中
+		map.getContainer().appendChild(div);
+		// 将DOM元素返回
+		return div;
+	}
+	//创建控件元素
+	var myLocationCtrl = new LocationControl();
+	//添加到地图中
+	map.addControl(myLocationCtrl);
+	//--------------------------------------------------------根据ip获取定位位置--------------------------------------------------------------------------
+	// 将控件添加到地图上
+	//获取当前地理位置 将地图中心点移动到定位位置
+	//创建定位对象
+	var geolocation = new BMapGL.Geolocation();
+	
+	//存储你的地区经纬度，用于快速定位
+	var my_point = null;
+	var my_pointMarker = null;
+	//通过定位对象调用定位函数,回调函数形参r表示定位结果 
+	geolocation.getCurrentPosition(function (r) 
+	{
+	//如果定位成功 
+		if (this.getStatus() == BMAP_STATUS_SUCCESS) 
+		{		
+			//创建标记,r是定位结果,r.point就是当前定位的地点 
+			my_pointMarker = new BMapGL.Marker(r.point);
+			my_point = r.point; 
+		} 
+		else 
+		{ 
+			alert('获取您的定位失败！' + this.getStatus()); 
+		}
+	});
+	
+	//-----------------------------------------------------------自定义一个卫星地球模式控件类-------------------------------------------------------
+	var isEarth = false;
+	function EarthControl() {
+		this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
+		this.defaultOffset = new BMapGL.Size(9, 225)
+	}
+	//通过JavaScript的prototype属性继承于BMap.Control
+	EarthControl.prototype = new BMapGL.Control();
+
+	//自定义控件必须实现自己的initialize方法，并且将控件的DOM元素返回
+	//在本方法中创建个div元素作为控件的容器，并将其添加到地图容器中
+	EarthControl.prototype.initialize = function(map) {
+		 //创建一个dom元素
+		var div = document.createElement('div');
+		 //添加文字说明
+		//div.appendChild(document.createTextNode('放大2级'));
+		  // 设置样式
+		div.style.backgroundImage = "url(https://img-blog.csdnimg.cn/d5f3c66bb7ed44fbb5ec4c1ad36965d3.png#pic_center)";
+		div.style.height = "17px";
+		div.style.width = "12px";
+		div.style.cursor = "pointer";
+		div.style.padding = "7px 10px";
+		div.style.boxShadow = "0 2px 6px 0 rgba(27, 142, 236, 0.5)";
+		div.style.borderRadius = "14px";
+		div.style.backgroundColor = "#336699";
+		// 绑定事件,点击一次放大两级
+		div.onclick = function(e){
+			isEarth = !isEarth;
+			if(isEarth){				
+				map.setMapType(BMAP_EARTH_MAP);  // 设置地图类型为卫星地球模式
+			} 
+			else map.setMapType(BMAP_NORMAL_MAP);
+		}
+		// 添加DOM元素到地图中
+		map.getContainer().appendChild(div);
+		// 将DOM元素返回
+		return div;
+	}
+	//创建控件元素
+	var myEarthCtrl = new EarthControl();
+	//添加到地图中
+	map.addControl(myEarthCtrl);
+
+	//-----------------------------------------------------------自定义一个显示路况图层控件类-------------------------------------------------------
+	var isTraffic = false;
+	function trafficControl() {
+		this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
+		this.defaultOffset = new BMapGL.Size(9, 270)
+	}
+	//通过JavaScript的prototype属性继承于BMap.Control
+	trafficControl.prototype = new BMapGL.Control();
+	
+	//自定义控件必须实现自己的initialize方法，并且将控件的DOM元素返回
+	//在本方法中创建个div元素作为控件的容器，并将其添加到地图容器中
+	trafficControl.prototype.initialize = function(map) {
+		 //创建一个dom元素
+		var div = document.createElement('div');
+		 //添加文字说明
+		//div.appendChild(document.createTextNode('放大2级'));
+		  // 设置样式
+		div.style.backgroundImage = "url(https://img-blog.csdnimg.cn/c2e9f3706d5a481ebda64fbbe244235a.png#pic_center)";
+		div.style.height = "17px";
+		div.style.width = "12px";
+		div.style.cursor = "pointer";
+		div.style.padding = "7px 10px";
+		div.style.boxShadow = "0 2px 6px 0 rgba(27, 142, 236, 0.5)";
+		div.style.borderRadius = "14px";
+		div.style.backgroundColor = "#336699";
+		// 绑定事件,点击一次放大两级
+		div.onclick = function(e){
+			isTraffic = !isTraffic;
+			map.setDisplayOptions({   //为防止隐藏图层后，交通路况图层出不来，所以先把 layer 属性设 true. 否则点击 隐藏图层 后，路况无法再次显示
+				layer:true
+			});
+			//setTrafficOn()	none	开启路况图层
+			//setTrafficOff()	none	关闭路况图层
+			if(isTraffic) {				
+				map.setTrafficOn();  //开启路况图层
+				alert("路况图层已打开")
+			}
+
+			else {
+				map.setTrafficOff();
+				alert("路况图层已关闭")				
+			}
+		}
+		// 添加DOM元素到地图中
+		map.getContainer().appendChild(div);
+		// 将DOM元素返回
+		return div;
+	}
+	//创建控件元素
+	var myTrafficCtrl = new trafficControl();
+	//添加到地图中
+	map.addControl(myTrafficCtrl);
+</script>
+
+<script type="text/javascript">
+/*------------------------------------------------------------------        全局变量定义          -------------------------------------------------------*/
+	var my_currentBike = null;//当前使用的单车
+	let bikeMap = new Map();
+	var lushu = null;
+	var polyline = null;
+	var drvMes = ""; //开车所需时间距离信息
+	var success = false;//操作是否成功
+	var isRide = false;
+	
+	//单车编号
+	var bikeNumber=0;
+	var bikeSpeed = 10; //	10m/s
+
+	//是否添加单车
+	var isAddBIke = false;
+	//是否取消用车
+	var isCancelRide = false;
+
+	//单车是否要选择目的地
+	var isChooeDestination = false;
+
+	//单车骑行起始点位置
+	var bikeStartPoint = null;
+	var bikeEndPoint = null;
+	
+	//单车图标
+	var myBikeIcon = new BMapGL.Icon("https://img-blog.csdnimg.cn/d1ad5ba89971476f9ba9f715e4f6252d.png#pic_center", new BMapGL.Size(32,32));
+			
+	 //起点图标ico
+	var myStartIcon = new BMapGL.Icon("https://img-blog.csdnimg.cn/6ca344f6844246538ce1cc0a3a5106cb.png#pic_center", new BMapGL.Size(48,48));
+	var startMarkerIcon = null;
+	//终点图标ico
+	var myEndIcon = new BMapGL.Icon("https://img-blog.csdnimg.cn/33174efc810247a9a5720a11c1e19e3e.png#pic_center", new BMapGL.Size(48,48));
+	var endMarkerIcon = null;
+	
+	var bikeRideStartTipMsg 	= "此单车正在使用中o(··o ...";
+	var bikeRideEndTipMsg   	= "可爱的单车邀请你扫码骑行∩ω∩";
+	var bikeFaultTipMsg     	= "单车已损坏！等待维修中＞﹏＜";
+	
+	
+	//点击单车操作提示信息
+	var bikeClickHtmlTip = "<div id='l-map'></div>" +
+	"<div>欢迎光临奇牛单车，点击扫码用车使用单车哦！</div>";
+	var bikeClickWelcomeInfoWindow = new BMapGL.InfoWindow(bikeClickHtmlTip);
+	
+	var bikeChooseDestinationHtmlTip = "<div>欢迎使用奇牛单车，请点击地图选择您的目的地哦！</div>";
+	var bikeChooseDestinationInfoWindow = new BMapGL.InfoWindow(bikeChooseDestinationHtmlTip);
+	//"<div>欢迎使用我，请点击地图选择您的目的地哦！</div>";
+	
+	//单车骑行提示信息
+	var bikeStartRunHtmlTip = "<div id='l-map'></div>" +
+	"<div>选择好目的地了吗？点击开始骑行按钮->骑牛哦！</div>";
+	var bikeStartRunTipInfoWindow = new BMapGL.InfoWindow(bikeStartRunHtmlTip);
+
+	//取消用车提示信息
+	var bikeCancelHtmlTip = "<div id='l-map'></div>" +
+	"<div>取消用车成功！</div>";
+	var bikeCancelInfoWindow = new BMapGL.InfoWindow(bikeCancelHtmlTip);
+
+	//还车提示信息
+	var bikeEndHtmlTip = "<div id='l-map'></div>" +
+	"<div>奇牛单车还车成功！欢迎下次光临！</div>";
+	var bikeEndInfoWindow = new BMapGL.InfoWindow(bikeEndHtmlTip);
+	
+	//单车正在使用提示信息
+	//var bikeUsingHtmlTip = 
+	var bikeUsingInfoWindow = new BMapGL.InfoWindow(bikeRideStartTipMsg);
+	//单车故障提示信息
+	var bikeFaultInfoWindow = new BMapGL.InfoWindow(bikeFaultTipMsg);
+	
+	//点击事件，点击地图时，提示信息关闭
+	bikeClickWelcomeInfoWindow.enableCloseOnClick();
+	bikeEndInfoWindow.enableCloseOnClick();
+	bikeCancelInfoWindow.enableCloseOnClick();
+	bikeStartRunTipInfoWindow.enableCloseOnClick();
+	bikeUsingInfoWindow.enableCloseOnClick();
+	bikeFaultInfoWindow.enableCloseOnClick();
+	//打开信息窗口后，聚焦点到该信息窗口
+	bikeClickWelcomeInfoWindow.enableAutoPan();
+	bikeEndInfoWindow.enableAutoPan();
+	bikeCancelInfoWindow.enableAutoPan();
+	bikeStartRunTipInfoWindow.enableAutoPan();
+	bikeUsingInfoWindow.enableAutoPan();
+	bikeFaultInfoWindow.enableAutoPan();
+	
+	// 实例化一个驾车导航用来生成路线
+	var searchComplete = function(results) 
+	{
+		if (drv.getStatus() == BMAP_STATUS_SUCCESS) 
+		{
+			var plan = results.getPlan(0);
+			var arrPois = [];
+			for (var j = 0; j < plan.getNumRoutes(); j++)
+			{
+				var route = plan.getRoute(j);
+				arrPois = arrPois.concat(route.getPath());
+			}
+			drvMes = "从起点到终点\n";
+			var distanceStr = plan.getDistance(true); //获取距离
+			//var spendTimeStr = plan.getDuration(true);//获取时间
+			var distance = distanceStr.match(/\d+(\.\d+)?/g); //解析匹配字符串中的数字
+			
+			if(parseInt(distance) != parseFloat(distance))
+			{
+				distance = distance*1000;
+			}
+			
+			var spendTime = (distance/bikeSpeed)/60.0;
+			spendTime = spendTime.toFixed(2);
+			drvMes += "总路程为：" + distanceStr + "\n";
+			drvMes += "飞速骑行所需时间大约为：" + spendTime + "分钟\n";;           
+			drvMes += "确认终点后，点击开始骑行按钮~飞速赶完目的地哦！";
+			
+			//new BMapGL.DrivingRoute，new BMap.Polyline在电脑端可以，在手机端不可以，要用new BMapGL.DrivingRoute，new BMap.Polyline
+			//设置视角自动却换到规划的路线中
+			map.setViewport(arrPois);
+			//画出规划的路线点，并添加到地图上显示		
+			polyline = new BMapGL.Polyline(arrPois, {strokeColor: 'red'});
+			//polyline.setStrokeWeight(5);
+			//map.addOverlay(polyline);			
+
+			lushu = new BMapGLLib.LuShu(map, arrPois, 
+			{
+				defaultContent: '起飞啦', // "信息窗口文案"
+				autoView: true, // 是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
+				speed: bikeSpeed, 		// 3m/s
+				//icon: new BMapGL.Icon('./images/car.png', new BMapGL.Size(32, 32), { anchor: new BMapGL.Size(10, 10) }),
+				//icon: new BMapGL.Icon(myBikeIcon, new BMapGL.Size(48, 48), { anchor: new BMapGL.Size(24, 24) }),
+				icon: myBikeIcon,
+				enableRotation: true, // 是否设置marker随着道路的走向进行旋转	
+			});	 
+		}
+	}
+	
+	var drv = new BMapGL.DrivingRoute(map, {renderOptions: 
+	{map: map},
+		onSearchComplete: searchComplete,
+		onPolylinesSet: function()
+		{        
+            setTimeout(function(){alert(drvMes);drvMes = ""; },"1000");
+			
+		}
+	});
+	
+	
+	//地图点击事件，判断点击的是地图还是覆盖物
+	map.addEventListener("click",isClickMap);
+	document.getElementById('bike').style.visibility='hidden';
+	//地图点击后执行的函数
+	function isClickMap(e)
+	//在BMapGL中 e.latlng.lng, e.latlng.lat 获取经纬度
+	{
+		//当没有点击单车等覆盖物时
+		if(!e.overlay)
+		{
+			var point = new BMapGL.Point(e.latlng.lng, e.latlng.lat);
+			
+			if(my_currentBike)
+			{
+				my_currentBike.disableDragging();
+			}
+			if(isChooeDestination)
+			{							 
+				bikeEndPoint = point;
+				//my_currentBike.setTop(true);
+				
+				//drvMes = "从点(" + bikeStartPoint.lng + "," + bikeStartPoint.lat + ")" + "到点(" + bikeEndPoint.lng + "," + bikeEndPoint.lat + ")";
+				//bikeEndPoint = new BMapGL.Point(my_bikeMarker.getPosition().lng, my_bikeMarker.getPosition().lat);
+				drv.search(bikeStartPoint, bikeEndPoint);
+				map.openInfoWindow(bikeStartRunTipInfoWindow, new BMapGL.Point(bikeStartPoint.lng, bikeStartPoint.lat)); //开启信息窗口				
+			}
+			else
+			{
+				document.getElementById('bike').style.visibility='hidden';
+				//my_bikeMarker.setAnimation(null);
+				map.clearOverlays();
+				bikeStartPoint = null;
+				bikeEndPoint = null;
+			}
+			//document.getElementById("start").innerHTML="扫码用车";
+			//alert(point.lng+ " " + point.lat);
+		}		
+	}
+	 
+	//绑定按钮点击事件
+	/*$("addBikeBtn").onclick = function(){
+
+		if(isAddBIke)
+		{
+			document.getElementById("addBikeBtn").innerHTML = "添加单车";
+		}
+		else
+		{
+			document.getElementById("addBikeBtn").innerHTML = "取消添加";
+		}
+		isAddBIke = !isAddBIke;
+
+	}*/
+
+	$("start").onclick = function()
+	{
+		//按钮不可点击
+		//document.getElementById("start").disabled=ture;
+
+		if(document.getElementById("start").innerHTML == "扫码用车")
+		{
+			var bikeStatus = my_currentBike.getTitle();
+			var bikeInfo = bikeStatus.split(",");	
+			var currentBikePoint = new BMapGL.Point(my_currentBike.getPosition().lng, my_currentBike.getPosition().lat);
+			bikeStartPoint = currentBikePoint;	
+			ScanQRStartRequest(bikeInfo[0], bikeStartPoint.lng, bikeStartPoint.lat);
+			
+		}
+		/*if(document.getElementById("start").innerHTML == "取消用车")
+		{
+			isCancelRide = true;
+			var bikeStatus = my_currentBike.getTitle();
+			var bikeInfo = bikeStatus.split(",");	
+			ScanQREndRequest(bikeInfo[0], my_currentBike.getPosition().lng, my_currentBike.getPosition().lat);
+			alert("success:"+success);
+			if(success)
+			{
+				document.getElementById("start").innerHTML="扫码用车";
+				success=false;
+			}
+		}*/
+		
+	}
+	$("stop").onclick = function()
+	{
+		if(!bikeStartPoint) alert("请先扫码用车！");
+		var bikeStatus = my_currentBike.getTitle();
+		var bikeInfo = bikeStatus.split(",");
+		if(!isRide)
+		{				
+			ScanQREndRequest(bikeInfo[0], bikeStartPoint.lng, bikeStartPoint.lat);
+			return;		
+		}
+		ScanQREndRequest(bikeInfo[0], bikeEndPoint.lng, bikeEndPoint.lat);
+	}
+	$("pause").onclick = function()
+	{
+		lushu.pause();
+	}
+	$("run").onclick = function()
+	{	
+		if(!bikeStartPoint || !bikeEndPoint)	
+		{
+			alert("请选择正确的起点和终点！");
+			return;
+		}
+		isRide = true;	
+		lushu.start();
+		my_currentBike.hide();
+		lushu.showInfoWindow();
+		//add_MarkerIcoToMap(bikeEndPoint, myEndIcon);
+		//alert("显示路书");
+	}
+	function $(element) 
+	{
+		return document.getElementById(element);
+	}
+</script>
+
+<script type="text/javascript">
+	//-------------------------------------------------------------  搜索栏智能扩展搜索  --------------------------------------------------------
+		
+	function G(id) {
+		return document.getElementById(id);
+	}
+
+	var ac = new BMapGL.Autocomplete(    //建立一个自动完成的对象
+		{"input" : "cityName"
+		,"location" : map
+	});
+
+	ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+		var str = "";
+		var _value = e.fromitem.value;
+		var value = "";
+		if (e.fromitem.index > -1) {
+				value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		}
+		str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+		value = "";
+		if (e.toitem.index > -1) {
+				_value = e.toitem.value;
+				value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		}
+		str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+		G("cityName").innerHTML = str;
+	});
+
+	var myValue;
+	ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+	var _value = e.item.value;
+		myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		G("cityName").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+		setPlace();
+	});
+	function setPlace(){
+        //map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun(){
+            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            map.centerAndZoom(pp, 18);
+            map.addOverlay(new BMapGL.Marker(pp));    //添加标注
+        }
+        var local = new BMapGL.LocalSearch(map, { //智能搜索
+          onSearchComplete: myFun
+        });
+        local.search(myValue);
+    }
+	
+	/*function theLocation(){
+		var city = document.getElementById("cityName").value;
+		if(city != ""){
+				map.centerAndZoom(city,13);      // 用城市名设置地图中心点
+		}
+    }*/
+	
+	//---------------------------------------------------------------- end -----------------------------------------------------------------------
+
+
+	//----------------------------------------------------------  创建搜索信息框  --------------------------------------------------------------------
+	var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
+			'<img src="../img/baidu.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
+			'地址：北京市海淀区上地十街10号<br/>电话：(010)59928888<br/>简介：百度大厦位于北京市海淀区西二旗地铁站附近，为百度公司综合研发及办公总部。' +
+		  '</div>';
+
+	//创建检索信息窗口对象
+	var searchInfoWindow = null;
+	searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+					title  : "百度大厦",      //标题
+					width  : 290,             //宽度
+					height : 105,              //高度
+					panel  : "panel",         //检索结果面板
+					enableAutoPan : true,     //自动平移
+					searchTypes   :[
+							BMAPLIB_TAB_SEARCH,   //周边检索
+							BMAPLIB_TAB_TO_HERE,  //到这里去
+							BMAPLIB_TAB_FROM_HERE //从这里出发
+					]
+	});
+
+	
+	
+</script>
+
+<!------------------------------------------------------------  用户自定义函数  ------------------------------------------------------------>
+<script type="text/javascript">
+			 
+	function addBikeMarker(bikeid, status, longitude, latitude)
+	{
+		//new 一个单车
+		
+		var my_bikeMarker = new BMapGL.Marker(new BMapGL.Point(longitude,latitude), {icon: myBikeIcon});
+
+		bikeMap.set(bikeid, my_bikeMarker);
+		//标题由单车id, 单车状态组成
+		my_bikeMarker.setTitle(bikeid.toString() + "," + bikeStatusToString(status));
+
+		my_bikeMarker.disableDragging();
+		//let key_Marker = my_bikeMarker;
+		//添加到map中				
+
+		my_bikeMarker.disableMassClear();
+
+		map.addOverlay(my_bikeMarker);
+
+		//点击事件
+		my_bikeMarker.addEventListener("click", function() 
+		{
+			/*BMapGL.Marker不能通过这种方式获取坐标
+			function(e)
+			{
+				bikeStartPoint = new BMapGL.Point(e.latlng.lng, e.latlng.lat);
+			}
+			*/
+			if(bikeStartPoint || bikeEndPoint) return;
+			clearBikeAllStatus(my_currentBike);
+		
+			my_currentBike = my_bikeMarker;
+			//document.getElementById("addBikeBtn").innerHTML = "添加单车";
+			//获取单车状态
+			var bikeStatus = my_currentBike.getTitle();
+			var bikeInfo = bikeStatus.split(",");
+			var tmpPoint = new BMapGL.Point(my_bikeMarker.getPosition().lng, my_bikeMarker.getPosition().lat);
+			if(bikeStatusToInt(bikeInfo[1]) == BikeStatus.BIKE_RIDE_START)
+			{
+				//alert("map.openInfoWindow(bikeUsingHtmlTip, new BMapGL.Point(my_bikeMarker.getPosition().lng, my_bikeMarker.getPosition().lat))");
+				document.getElementById('bike').style.visibility='hidden';
+				map.openInfoWindow(bikeUsingInfoWindow, tmpPoint);
+				return;
+			}
+			if(bikeStatusToInt(bikeInfo[1]) == BikeStatus.BIKE_FAULT)
+			{
+				document.getElementById('bike').style.visibility='hidden';
+				map.openInfoWindow(bikeFaultInfoWindow, tmpPoint);
+				return;
+			}
+			if(bikeStatusToInt(bikeInfo[1]) == BikeStatus.BIKE_RIDE_END)
+			{
+				document.getElementById("start").innerHTML="扫码用车";
+			}
+			document.getElementById('bike-id').innerHTML=("#" + bikeInfo[0].toString());
+			document.getElementById('bike').style.visibility='visible';
+			map.openInfoWindow(bikeClickWelcomeInfoWindow, tmpPoint);	
+			
+		});
+		
+		my_bikeMarker.addEventListener("dragstart", function(e)
+		{
+			//map.closeInfoWindow(bikeChooseDestinationInfoWindow);
+		});
+		
+		my_bikeMarker.addEventListener("dragend", function(e)
+		{
+			
+			
+			my_currentBike = my_bikeMarker;
+			map.clearOverlays();
+			//document.getElementById('bike').style.visibility='visible';
+			//记录单车骑行终点位置
+			bikeEndPoint = new BMapGL.Point(my_bikeMarker.getPosition().lng, my_bikeMarker.getPosition().lat);
+			
+			my_currentBike.setTop(true);
+			//my_bikeMarker.hide();
+			//my_currentBike.closeInfoWindow(my_startInfoWindow);
+			map.openInfoWindow(bikeStartRunTipInfoWindow, bikeStartPoint);
+
+			drv.search(bikeStartPoint, bikeEndPoint);					
+				
+		});
+	
+    }
+	
+	//	BIKE_RIDE_START         :   1,  //单车扫码开始骑行，正在使用中
+	//	BIKE_RIDE_END           :   2,  //单车扫码结束骑行，恢复正常状态
+	//	BIKE_FAULT              :   3,  //单车扫码故障报修，处于故障状态
+	//	BIKE_REPAIR_FINISH      :   4,  //单车扫码修复完成，恢复正常状态
+	//单车状态转string
+	function bikeStatusToString(status_int)
+	{
+	
+		if(status_int == BikeStatus.BIKE_RIDE_START)
+		{
+			return bikeRideStartTipMsg;
+		}
+		else if(status_int == BikeStatus.BIKE_RIDE_END)
+		{
+			return bikeRideEndTipMsg;
+		}
+		else if(status_int == BikeStatus.BIKE_FAULT)
+		{
+			return bikeFaultTipMsg;
+		}
+		
+		/*if(status == BikeStatus.BIKE_RIDE_START)
+		{
+			return "单车修复完成...";
+		}*/
+		alert("无法识识别的单车状态 NULL");
+		return NULL;
+	}
+	//单车状态转int
+	function bikeStatusToInt(status_string)
+	{
+		if(status_string == bikeRideStartTipMsg)
+		{
+			return BikeStatus.BIKE_RIDE_START;
+		}
+		else if(status_string == bikeRideEndTipMsg)
+		{
+			return BikeStatus.BIKE_RIDE_END;
+		}
+		else if(status_string == bikeFaultTipMsg)
+		{
+			return BikeStatus.BIKE_FAULT;
+		}
+		else
+		{
+			alert("无法识识别的单车状态");
+			return 0;
+		}	
+	}
+	
+	//添加 起点.ico
+	function addStartIcoToMap(point){
+			startMarkerIcon = new BMapGL.Marker(point,{icon:myStartIcon});
+			map.addOverlay(startMarkerIcon);
+			map.removeOverlay(startMarkerIcon);
+	}
+	//删除 起点.ico
+	function DelStartIcoToMap(point){
+			//startMarkerIcon = new BMapGL.Marker(point,{icon:myStartIcon});
+			map.removeOverlay(startMarkerIcon);
+			//startMarkerIcon.hide();
+	}
+
+	//添加 终点.ico
+	function addEndIcoToMap(point){
+			endMarkerIcon = new BMapGL.Marker(point,{icon:myEndIcon});
+			map.addOverlay(endMarkerIcon);
+	}
+	//删除 终点.ico
+	function delEndIcoToMap(point){
+
+			//startMarkerIcon = new BMap.Marker(point,{icon:myStartIcon});
+			map.removeOverlay(endMarkerIcon);
+			//startMarkerIcon.hide();
+	}
+	function add_MarkerIcoToMap(point, ico){
+			//startMarkerIcon = new BMap.Marker(point,{icon:myStartIcon});
+			marker = new BMapGL.Marker(point,{icon:ico});
+			marker.setOffset(new BMapGL.Size(0,-10));
+			map.addOverlay(marker);
+			//startMarkerIcon.hide();
+	}
+	function del_MarkerIcoToMap(marker){
+			//startMarkerIcon = new BMap.Marker(point,{icon:myStartIcon});
+			map.removeOverlay(marker);
+			//startMarkerIcon.hide();
+	}
+	//清除单车所有状态
+	function clearBikeAllStatus(marker)
+	{
+			//marker.setAnimation(null);
+			//searchInfoWindow.close();
+	}
+		
+</script>
+
+
+<!-------------------------------------------------------  百度地图向Qt发送各种请求，接收各种响应   ----------------------------------------------------------------------->
+<script type="text/javascript">
+
+	var EventID = 
+	{
+	    EEVENTID_GET_MOBILE_CODE_REQ		: 1,//获取手机验证码请求
+		EEVENTID_GET_MOBILE_CODE_RSP		: 2,//手机验证码响应
+
+		EEVENTID_REGISTER_USER_REQ          : 3,//用户注册请求
+		EEVENTID_REGISTER_USER_RSP          : 4,//用户注册响应
+
+		EEVENTID_LOGIN_REQ					: 5,//登陆请求
+		EEVENTID_LOGIN_RSP					: 6,//登陆响应
+
+		EEVENTID_RECHARGE_REQ				: 7,//充电请求
+		EEVENTID_RECHARGE_RSP				: 8,//充电响应
+
+		EEVENTID_SCANQRSTART_REQ			: 9,//单车扫码开始骑行请求
+		EEVENTID_SCANQRSTART_PSP			: 10,//单车扫码开始骑行响应
+
+		EEVENTID_SCANQREND_REQ				: 11,//单车扫码结束骑行请求
+		EEVENTID_SCANQREND_PSP				: 12,//单车扫码结束骑行响应
+
+		EEVENTID_FAULT_REQ                  : 13,//单车扫码故障报修请求
+		EEVENTID_FAULT_PSP                  : 14,//单车扫码故障报修响应
+
+		EEVENTID_REPAIRFINISH_REQ           : 15,//单车扫码修复完成请求
+		EEVENTID_REPAIRFINISH_PSP           : 16,//单车扫码修复完成响应
+
+
+		EEVENTID_GET_ACCOUNT_BALANCE_REQ	: 21,//获取账号余额请求
+		EEVENTID_ACCOUNT_BALANCE_RSP		: 22,//账号余额响应
+
+		EEVENTID_LIST_ACCOUNT_RECORDS_REQ   : 23,//获取账户记录请求
+		EEVENTID_ACCOUNT_RECORDS_RSP		: 24,//账户记录响应
+
+		EEVENTID_LIST_TRAVELS_REQ			: 25,//获取足迹请求
+		EEVENTID_LIST_TRAVELS_RSP			: 26,//足迹响应
+		
+		EEVENTID_BROADCAST_MSG_REQ			: 27,//广播请求
+		EEVENTID_BROADCAST_MSG_RSP			: 28,//广播响应
+
+		EEVENTID_LIST_BIKEINFO_REQ          : 29,//例举单车信息请求
+		EEVENTID_LIST_BIKEINFO_RSP          : 30,//例举单车信息响应
+		
+		EEVNETID_EXIT_RSP : 0xFE,
+		EEVNETID_UNKOWN : 0xFF
+	};
+	
+	var BikeStatus =
+	{
+		BIKE_RIDE_START         :   1,  //单车扫码开始骑行，正在使用中
+		BIKE_RIDE_END           :   2,  //单车扫码结束骑行，恢复正常状态
+		BIKE_FAULT              :   3,  //单车扫码故障报修，处于故障状态
+		BIKE_REPAIR_FINISH      :   4,  //单车扫码修复完成，恢复正常状态
+
+	};
+	
+	//单车扫码骑行请求
+	function ScanQRStartRequest(bikeId, longitude, latitude)
+	{
+		msg_interface.openScanCodeWindow(bikeId, longitude, latitude);
+		//msg_interface.scanQRRequest(EventID.EEVENTID_SCANQRSTART_REQ, bikeId, longitude, latitude);
+	}
+	//单车扫码骑行响应
+	function ScanQRStartResponse()
+	{
+		isChooeDestination = true;
+		map.closeInfoWindow(bikeClickWelcomeInfoWindow);//
+		map.openInfoWindow(bikeChooseDestinationInfoWindow, new BMapGL.Point(bikeStartPoint.lng, bikeStartPoint.lat)); //开启信息窗口
+		//searchInfoWindow.close();
+		//设置当前的单车能够拖拽，移动，模拟骑行
+		my_currentBike.enableDragging();
+		var bikeStatus = my_currentBike.getTitle();
+		var bikeInfo = bikeStatus.split(",");
+		//document.getElementById("start").disabled=true;
+
+		document.getElementById('start').style.color="#808080";//设置背景色
+		document.getElementById('start').disabled=true;
+		msg_interface.sendBroadcastRequest(bikeInfo[0], BikeStatus.BIKE_RIDE_START, my_currentBike.getPosition().lng, my_currentBike.getPosition().lat);
+	}
+	//单车扫码还车请求
+	function ScanQREndRequest(bikeId, longitude, latitude)
+	{
+		msg_interface.scanQRRequest(EventID.EEVENTID_SCANQREND_REQ, bikeId, longitude, latitude);
+	}
+	//单车扫码还车响应
+	function ScanQREndResponse()
+	{
+		var bikeStatus = my_currentBike.getTitle();
+		var bikeInfo = bikeStatus.split(",");
+		if(isRide)
+		{
+			isRide = false;
+			lushu.hideInfoWindow();
+			lushu.stop();
+			msg_interface.sendBroadcastRequest(bikeInfo[0], BikeStatus.BIKE_RIDE_END, bikeEndPoint.lng, bikeEndPoint.lat);
+			alert("还车成功！");
+			map.openInfoWindow(bikeEndInfoWindow, new BMapGL.Point(bikeEndPoint.lng, bikeEndPoint.lat));
+		}
+		else{
+			msg_interface.sendBroadcastRequest(bikeInfo[0], BikeStatus.BIKE_RIDE_END, bikeStartPoint.lng, bikeStartPoint.lat);
+			alert("还车成功，此次扫码不收费哦！");			
+		}
+		
+		document.getElementById('bike').style.visibility='hidden';
+		map.clearOverlays();
+		map.closeInfoWindow(bikeStartRunTipInfoWindow);
+		isChooeDestination = false;
+
+		//设置按钮属性
+		document.getElementById('start').style="{background-color: rgba(27, 142, 236, 0.8);color: #fff;}";
+		document.getElementById("start").disabled=false;
+
+		my_currentBike.show();
+		my_currentBike.disableDragging();
+
+		bikeStartPoint = null;
+		bikeEndPoint = null;
+	}
+	//
+
+	//单车信息广播响应
+	/*function bikeInfoBroadcastResponse(bikeId, bikeStatus, longitude, latitude)
+	{
+		var bike = bikeMap.get(bikeId);
+		bike.setTitle(bikeId.toString() + "," + bikeStatusToString(bikeStatus));
+		bike.setPosition(new BMapGL.Point(longitude, latitude)); 
+	}*/
+	function setBikeAllInfo(bikeId, bikeStatus, longitude, latitude)
+	{
+		var bike = bikeMap.get(bikeId);
+		bike.setTitle(bikeId.toString() + "," + bikeStatusToString(bikeStatus));
+		bike.setPosition(new BMapGL.Point(longitude, latitude)); 
+	}
+
+</script>
+
+<script type="text/javascript">
+	//BEGIN SETUP
+	//输出连接信息
+	/*function output(message) {
+		alert(message);
+		var output = document.getElementById("addBikeBtn").value;
+		//addBikeBtn.innerHTML = output + message;
+	}*/
+	
+	
+	window.onload = function() {
+		if (location.search != "")
+			var baseUrl = (/[?&]webChannelBaseUrl=([A-Za-z0-9\-:/\.]+)/.exec(location.search)[1]);
+		else
+			var baseUrl = "ws://localhost:12345";
+
+		//output("Connecting to WebSocket server at " + baseUrl + ".");
+		var socket = new WebSocket(baseUrl);
+
+		socket.onclose = function() {
+			console.error("web channel closed");
+		};
+		socket.onerror = function(error) {
+            //alert("socket.onerror：" +  error);
+			console.error("web channel error: " + error);
+		};
+		socket.onopen = function() {
+			//output("11");
+			new QWebChannel(socket, function(channel) {
+				// 声明 msg_interface 变为全局(即整个html)可见变量
+				window.msg_interface = channel.objects.msg_interface;
+
+				//监视msg_bridge的信号，当msg_bridge的sendBikeMsg信号触发时，就会触发该函数，相当于qt中的信号与槽
+				msg_interface.ListAllBikeMsgSig.connect(function(bikeid, status, longitude, latitude) 
+				{
+					//alert("客户端已经收到共享单车服务器端的同步请求回应，正在处理......id："+ bikeid +" longitude：" + longitude +" status"+ status+ " latitude：" + latitude);
+					addBikeMarker(bikeid, status, longitude, latitude);					
+				});
+				
+				//提示信息的打印
+				msg_interface.msgTipPrintToHtmlSig.connect(function(tipMsg) 
+				{
+					alert(tipMsg);				
+				});
+				msg_interface.isSuccess.connect(function(successValue) 
+				{
+					alert("successValue:"+successValue);
+					success = successValue;
+				});
+				//服务器连接失败时
+				msg_interface.ServerConnectFalseSig.connect(function(falseMsg)
+				{
+					alert(falseMsg);
+					//服务器连接失败，退出客户端
+					msg_interface.quiteBikeClient();
+				});
+				//服务器连接成功！
+				msg_interface.ServerConnectSuccessSig.connect(function()
+				{
+					//发送请求单车获取所有单车信息
+					
+					msg_interface.sendRequestToGetAllBikeMsg();
+				});
+				//单车骑行响应
+				msg_interface.sendBikeStartResSig.connect(function()
+				{
+					ScanQRStartResponse();
+				});
+				//单车还车响应
+				msg_interface.sendBikeEndResSig.connect(function()
+				{
+					ScanQREndResponse();
+				});
+				//单车信息广播响应
+				msg_interface.bikeInfoBroadcastResSig.connect(function(bikeid, status, longitude, latitude)
+				{
+					setBikeAllInfo(bikeid, status, longitude, latitude);
+				});
+				//进入客户端后，尝试连接服务器
+				msg_interface.connectBikeServer();
+				//尝试获取权限
+				msg_interface.getPermission();
+
+				//javascript 字符串截取， arr=str.split(”，”);
+			});
+		}
+	}
+	
+
+	//END SETUP
+</script>
