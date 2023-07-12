@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<RCC>
+    <qresource prefix="/">
+        <file alias="images/bike.gif">../images/bike.gif</file>
+        <file alias="images/bike_32.ico">../images/bike_32.ico</file>
+        <file alias="images/bike_48.ico">../images/bike_48.ico</file>
+        <file alias="images/tip.png">../images/tip.png</file>
+    </qresource>
+</RCC>
