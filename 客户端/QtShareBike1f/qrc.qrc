@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/bike.gif</file>
+        <file>images/bike_32.ico</file>
+        <file>images/bike_48.ico</file>
+        <file>images/tip.png</file>
+        <file>main.qml</file>
+        <file>+android/LoadProgressStyle.qml</file>
+    </qresource>
+</RCC>
