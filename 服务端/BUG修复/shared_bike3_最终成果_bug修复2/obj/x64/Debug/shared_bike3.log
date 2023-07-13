@@ -1,0 +1,25 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.52.128”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  DispatchMsgService.cpp
+F:\shared_bike3\DispatchMsgService.cpp(110,25): warning : conversion to ‘i32 {aka int}’ from ‘int_t {aka long int}’ may alter its value [-Wconversion]
+F:\shared_bike3\DispatchMsgService.cpp(110,25): warning :   return thread_task_post(tp, task);
+F:\shared_bike3\DispatchMsgService.cpp(110,25): warning :          ~~~~~~~~~~~~~~~~^~~~~~~~~~
+F:\shared_bike3\DispatchMsgService.cpp(466,21): warning : unused variable ‘cs’ [-Wunused-variable]
+F:\shared_bike3\DispatchMsgService.cpp(466,21): warning :      ConnectSession* cs = (ConnectSession*)ev->get_args();
+F:\shared_bike3\DispatchMsgService.cpp(466,21): warning :                      ^~
+  NetworkInterface.cpp
+F:\shared_bike3\NetworkInterface.cpp(66,27): warning : conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+F:\shared_bike3\NetworkInterface.cpp(66,27): warning :   sin.sin_port = htons(port);
+F:\shared_bike3\NetworkInterface.cpp(66,27): warning :                            ^
+F:\shared_bike3\NetworkInterface.cpp(179,29): warning : conversion to ‘i32 {aka int}’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+F:\shared_bike3\NetworkInterface.cpp(179,29): warning :    i32 len = bufferevent_read(bev, cs->header + cs->read_header_len, MESSAGE_HEADER_LEN - cs->read_header_len);
+F:\shared_bike3\NetworkInterface.cpp(179,29): warning :              ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+F:\shared_bike3\NetworkInterface.cpp(226,29): warning : conversion to ‘i32 {aka int}’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+F:\shared_bike3\NetworkInterface.cpp(226,29): warning :    i32 len = bufferevent_read(bev, cs->read_buf + cs->read_message_len, cs->message_len - cs->read_message_len);
+F:\shared_bike3\NetworkInterface.cpp(226,29): warning :              ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  正在链接对象
+  shared_bike3.vcxproj -> F:\shared_bike3\bin\x64\Debug\shared_bike3.out

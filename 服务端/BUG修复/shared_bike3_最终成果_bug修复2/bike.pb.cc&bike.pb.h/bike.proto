@@ -1,0 +1,243 @@
+syntax = "proto2";
+
+package tutorial;
+
+message mobile_request
+{
+	required string  userName   = 1;    // 用户名
+}
+
+message mobile_response
+{
+    required int32 resCode   = 1;   //响应代号
+    required int32 verCode  = 2;    //验证码
+    optional string data  = 3;      //失败原因
+}
+
+message addBike_request
+{
+	required int32  bikeId  	= 1; //单车id
+	required double longitude	= 2; //单车所在经度
+	required double latitude  	= 3; //单车所在纬度
+}
+
+message addBike_response
+{
+	required int32  bikeId  	= 1; //单车id
+	required double longitude	= 2; //单车所在经度
+	required double latitude  	= 3; //单车所在纬度
+    required int32 resCode  	= 4; //响应代号
+}
+
+message deleteBike_request
+{
+	required int32  bikeId  	= 1; //单车id
+}
+
+message deleteBike_response
+{
+ 	required int32  bikeId  	= 1; //单车id
+	required int32  resCode  	= 2; //响应代号
+}
+
+message registerUser_request
+{
+    required string  userName   = 1;    // 用户名
+	required string  userPwd    = 2;    // 用户密码
+    required int32   verCode  	= 3;   	// 验证码
+}
+
+message registerUser_response
+{
+    required string  userName   = 1;    // 用户名
+	required string  userPwd    = 2;    // 用户密码
+	optional int32   verCode   	= 3;    // 验证码
+    required int32   resCode   	= 4;    // 响应代号
+}
+
+message login_request
+{
+	required string  userName   = 1;    // 用户名
+	required string  userPwd    = 2;    // 用户密码
+}
+
+
+message login_response
+{
+    required int32   resCode   	= 1;    // 响应代号
+	required string  userName   = 2;    // 用户名
+	required string  userPwd    = 3;    // 用户密码
+	optional int32   userLevel  = 4;    // 用户等级，层次
+}
+
+message recharge_request
+{
+    required string userName  = 1;    // 手机号码
+    required int32  amount  = 2;    // 充值金额
+}
+
+
+message recharge_response
+{
+    required int32   resCode   = 1;    // 响应代号
+    optional string  desc   = 2;    // 验证码
+    required int32  balance = 3;    // 最新的余额
+}
+
+message account_balance_request
+{
+    required string userName = 1;
+}
+//账户余额响应
+message account_balance_response
+{
+    required int32   resCode   = 1;    // 响应代号
+    optional string  desc   = 2;    // 验证码
+    required int32  balance = 3;
+}
+//广播请求
+message broadcast_msg_request
+{
+	required int32 	bikeId 	  	= 1; //单车的Id
+	required int32 	bikeStatus 	= 2; //单车状态，0表示未使用，1表示使用
+	required double longitude	= 3; //单车所在经度
+	required double latitude  	= 4; //单车所在纬度
+	
+}
+//广播响应
+message broadcast_msg_response
+{
+	required int32 	bikeId 	  	= 1; //单车的Id
+	required int32 	bikeStatus 	= 2; //单车状态，0表示未使用，1表示使用
+	required double longitude	= 3; //单车所在经度
+	required double latitude  	= 4; //单车所在纬度
+}
+//单车扫码开始骑行请求
+message bike_scanQR_start_request
+{	
+	required string userName  = 1; // 用户手机号
+	required int32  bikeId    = 2; // 单车的Id
+	required uint64 timestamp = 3; // 记录发生时的时间戳
+	required double longitude = 4; // 骑行开始的经度
+	required double latitude  = 5; // 骑行开始的纬度
+	
+}
+//单车扫码开始骑行响应
+message bike_scanQR_start_response
+{	
+	required uint64 timestamp = 1; // 记录发生时的时间戳
+	required double longitude = 2; // 骑行开始的经度
+	required double latitude  = 3; // 骑行开始的纬度
+	required int32  resCode      = 4; // 响应代号
+}
+//单车扫码结束骑行请求
+message bike_scanQR_end_request
+{	
+	required string userName  = 1; // 用户手机号
+	required int32  bikeId    = 2; // 单车的Id
+	required uint64 timestamp = 3; // 记录发生时的时间戳
+	required double longitude = 4; // 骑行开始的经度
+	required double latitude  = 5; // 骑行开始的纬度
+}
+//单车扫码结束骑行响应
+message bike_scanQR_end_response
+{	
+	required int32  consume   = 1; // 消费金额
+	required int32  balance   = 2; // 账户余额
+	required uint64 timestamp = 3; // 记录结束时的时间戳
+	required double longitude = 4; // 骑行结束的经度
+	required double latitude  = 5; // 骑行结束的纬度
+	required int32  resCode      = 6; // 响应代号
+}
+
+//单车扫码故障报修请求
+message bike_fault_request
+{	
+	required string userName  = 1; // 用户手机号
+	required uint32 bike_id   = 2; // 单车id
+	required uint64 timestamp = 3; // 记录发生时的时间戳
+	required double longitude = 4; // 骑行开始的经度
+	required double latitude  = 5; // 骑行开始的纬度
+}
+
+//单车扫码故障报修响应
+message bike_fault_response
+{	
+	required int32  resCode      = 1; // 响应代号
+}
+
+//单车扫码修复完成请求
+message bike_repair_finish_request
+{	
+	required string userName  = 1; // 用户手机号
+	required uint32 bike_id   = 2; //单车id
+	required uint64 timestamp = 3; // 记录发生时的时间戳
+	required double longitude = 4; // 骑行开始的经度
+	required double latitude  = 5; // 骑行开始的纬度
+}
+
+//单车扫码修复完成响应
+message bike_repair_finish_response
+{	
+	required int32  resCode      = 1; // 响应代号
+}
+//获取单车信息
+message list_all_bikeinfo_request
+{
+	required string userName = 1;
+}
+//获取所有单车信息响应
+message list_all_bikeinfo_response
+{
+	required string userName = 1;
+	required int32  resCode   = 2; // 响应代号
+	message bikeinfo
+	{
+        required int32  bikeId      = 1; // 
+        required int32  bikeStatus  = 2; // 单车状态
+        required double longitude 	= 4; // 单车所在经度
+		required double latitude  	= 5; // 单车所在纬度
+	}
+	repeated bikeinfo records = 3;
+}
+
+message list_account_records_request
+{
+    required string userName = 1;
+}
+
+message list_account_records_response
+{
+    required int32   resCode   = 1;    // 响应代号
+    optional string  desc   = 2;    // 验证码
+    message account_record
+    {
+        required int32  type      = 1; // 0 : 骑行消费,  1 : 充值, 2 : 退款
+        required int32  consume   = 2; // 消费或者充值金额
+        required uint64 timestamp = 3; // 记录发生时的时间戳
+    }
+
+    repeated account_record records = 3;
+}
+
+message list_travel_records_request
+{
+    required string userName = 1;
+}
+
+message list_travel_records_response
+{
+    required int32   resCode   = 1;    // 响应代号
+    optional string  desc   = 2;    // 验证码
+    message travel_record
+    {
+        required uint64 stm      = 1;   // start timestamp
+        required uint32 duration = 2;   // 骑行时长
+        required uint32 amount   = 3;   // 所耗金额
+    }
+
+    required double              mileage   = 3; // 里程
+    required double              discharge = 4; // 排放
+    required double              calorie   = 5; // 卡路里
+    repeated travel_record       records   = 6;
+}
