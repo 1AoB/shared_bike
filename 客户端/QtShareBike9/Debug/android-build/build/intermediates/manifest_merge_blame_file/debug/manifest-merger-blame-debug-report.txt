@@ -1,0 +1,301 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="an.qt.qtWithJava"
+4    android:installLocation="auto"
+5    android:versionCode="1"
+6    android:versionName="1.0" >
+7
+8    <uses-sdk
+8-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:3:5-73
+9        android:minSdkVersion="23"
+9-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:3:15-41
+10        android:targetSdkVersion="26" />
+10-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:3:42-71
+11
+12    <!--
+13         The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.
+14         Remove the comment if you do not require these default permissions.
+15    -->
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:7:5-67
+16-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:7:22-64
+17    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+17-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:8:5-81
+17-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:8:22-78
+18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+18-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:9:5-79
+18-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:9:22-76
+19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+19-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:10:5-79
+19-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:10:22-76
+20
+21    <!--
+22         The following comment will be replaced upon deployment with default features based on the dependencies of the application.
+23         Remove the comment if you do not require these default features.
+24    -->
+25
+26    <supports-screens
+26-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:16:5-135
+27        android:anyDensity="true"
+27-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:16:80-105
+28        android:largeScreens="true"
+28-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:16:23-50
+29        android:normalScreens="true"
+29-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:16:51-79
+30        android:smallScreens="true" />
+30-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:16:106-133
+31
+32    <uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES" />
+32-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:90:1-79
+32-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:90:18-77
+33    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+33-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:10:5-79
+33-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:10:22-76
+34    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+34-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:92:5-80
+34-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:92:22-78
+35    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+35-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:93:1-75
+35-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:93:18-73
+36    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+36-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:8:5-81
+36-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:8:22-78
+37    <uses-permission android:name="android.permission.CAMERA" />
+37-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:95:5-64
+37-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:95:22-62
+38    <uses-permission android:name="android.permission.INTERNET" />
+38-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:7:5-67
+38-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:7:22-64
+39    <uses-permission android:name="android.permission.FLASHLIGHT" />
+39-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:12:5-69
+39-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:12:22-66
+40
+41    <uses-feature android:name="android.hardware.camera" />
+41-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:14:5-60
+41-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:14:19-57
+42    <uses-feature android:name="android.hardware.camera.autofocus" />
+42-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:15:5-70
+42-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:15:19-67
+43
+44    <uses-permission android:name="android.permission.VIBRATE" />
+44-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:17:5-66
+44-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:17:22-63
+45    <uses-permission android:name="android.permission.WAKE_LOCK" />
+45-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:18:5-68
+45-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:18:22-65
+46
+47    <application
+47-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:18:5-88:19
+48        android:name="org.qtproject.qt5.android.bindings.QtApplication"
+48-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:18:53-116
+49        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+49-->[androidx.core:core:1.5.0] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\32f03e90549ccc731fec2048347abc72\core-1.5.0\AndroidManifest.xml:24:18-86
+50        android:debuggable="true"
+51        android:extractNativeLibs="true"
+51-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:18:138-170
+52        android:hardwareAccelerated="true"
+52-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:18:18-52
+53        android:icon="@drawable/icon"
+53-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:18:171-200
+54        android:label="共享单车" >
+54-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:18:117-137
+55        <activity
+55-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:19:9-84:16
+56            android:name="an.qt.qtWithJava.MyJavaClass"
+56-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:19:189-232
+57            android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
+57-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:19:19-188
+58            android:label="共享单车"
+58-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:19:233-253
+59            android:launchMode="singleTop"
+59-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:19:294-324
+60            android:screenOrientation="unspecified" >
+60-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:19:254-293
+61            <intent-filter>
+61-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:20:13-23:29
+62                <action android:name="android.intent.action.MAIN" />
+62-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:21:17-68
+62-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:21:25-66
+63
+64                <category android:name="android.intent.category.LAUNCHER" />
+64-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:22:17-76
+64-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:22:27-74
+65            </intent-filter>
+66
+67            <!-- Application arguments -->
+68            <!-- meta-data android:name="android.app.arguments" android:value="arg1 arg2 arg3"/ -->
+69            <!-- Application arguments -->
+70
+71            <meta-data
+71-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:29:13-89
+72                android:name="android.app.lib_name"
+72-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:29:24-59
+73                android:value="minibrowser" />
+73-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:29:60-87
+74            <meta-data
+74-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:30:13-112
+75                android:name="android.app.qt_sources_resource_id"
+75-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:30:24-73
+76                android:resource="@array/qt_sources" />
+76-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:30:74-110
+77            <meta-data
+77-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:31:13-87
+78                android:name="android.app.repository"
+78-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:31:24-61
+79                android:value="default" />
+79-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:31:62-85
+80            <meta-data
+80-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:32:13-106
+81                android:name="android.app.qt_libs_resource_id"
+81-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:32:24-70
+82                android:resource="@array/qt_libs" />
+82-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:32:71-104
+83            <meta-data
+83-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:33:13-116
+84                android:name="android.app.bundled_libs_resource_id"
+84-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:33:24-75
+85                android:resource="@array/bundled_libs" />
+85-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:33:76-114
+86            <!-- Deploy Qt libs as part of package -->
+87            <meta-data
+87-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:35:13-91
+88                android:name="android.app.bundle_local_qt_libs"
+88-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:35:24-71
+89                android:value="1" />
+89-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:35:72-89
+90
+91            <!-- Run with local libs -->
+92            <meta-data
+92-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:38:13-88
+93                android:name="android.app.use_local_qt_libs"
+93-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:38:24-68
+94                android:value="1" />
+94-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:38:69-86
+95            <meta-data
+95-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:39:13-100
+96                android:name="android.app.libs_prefix"
+96-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:39:24-62
+97                android:value="/data/local/tmp/qt/" />
+97-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:39:63-98
+98            <meta-data
+98-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:40:13-122
+99                android:name="android.app.load_local_libs_resource_id"
+99-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:40:24-78
+100                android:resource="@array/load_local_libs" />
+100-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:40:79-120
+101            <meta-data
+101-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:41:13-175
+102                android:name="android.app.load_local_jars"
+102-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:41:24-66
+103                android:value="jar/QtAndroid.jar:jar/QtAndroidExtras.jar:jar/QtAndroidBearer.jar:jar/QtAndroidWebView.jar" />
+103-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:41:67-173
+104            <meta-data
+104-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:42:13-89
+105                android:name="android.app.static_init_classes"
+105-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:42:24-70
+106                android:value="" />
+106-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:42:71-87
+107            <!-- Used to specify custom system library path to run with local system libs -->
+108            <!-- <meta-data android:name="android.app.system_libs_prefix" android:value="/system/lib/"/> -->
+109            <!-- Messages maps -->
+110            <meta-data
+110-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:46:13-122
+111                android:name="android.app.ministro_not_found_msg"
+111-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:46:71-120
+112                android:value="@string/ministro_not_found_msg" />
+112-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:46:24-70
+113            <meta-data
+113-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:47:13-116
+114                android:name="android.app.ministro_needed_msg"
+114-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:47:68-114
+115                android:value="@string/ministro_needed_msg" />
+115-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:47:24-67
+116            <meta-data
+116-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:48:13-108
+117                android:name="android.app.fatal_error_msg"
+117-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:48:64-106
+118                android:value="@string/fatal_error_msg" />
+118-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:48:24-63
+119            <meta-data
+119-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:49:13-132
+120                android:name="android.app.unsupported_android_version"
+120-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:49:76-130
+121                android:value="@string/unsupported_android_version" />
+121-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:49:24-75
+122            <!-- Messages maps -->
+123
+124
+125            <!-- Splash screen -->
+126            <!--
+127                 Orientation-specific (portrait/landscape) data is checked first. If not available for current orientation,
+128                 then android.app.splash_screen_drawable. For best results, use together with splash_screen_sticky and
+129                 use hideSplashScreen() with a fade-out animation from Qt Android Extras to hide the splash screen when you
+130                 are done populating your window with content.
+131            -->
+132            <!-- meta-data android:name="android.app.splash_screen_drawable_portrait" android:resource="@drawable/logo_portrait" / -->
+133            <!-- meta-data android:name="android.app.splash_screen_drawable_landscape" android:resource="@drawable/logo_landscape" / -->
+134            <!-- meta-data android:name="android.app.splash_screen_drawable" android:resource="@drawable/logo"/ -->
+135            <!-- meta-data android:name="android.app.splash_screen_sticky" android:value="true"/ -->
+136            <!-- Splash screen -->
+137
+138
+139            <!-- Background running -->
+140            <!--
+141                 Warning: changing this value to true may cause unexpected crashes if the
+142                          application still try to draw after
+143                          "applicationStateChanged(Qt::ApplicationSuspended)"
+144                          signal is sent!
+145            -->
+146            <meta-data
+146-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:68:13-93
+147                android:name="android.app.background_running"
+147-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:68:24-69
+148                android:value="false" />
+148-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:68:70-91
+149            <!-- Background running -->
+150
+151
+152            <!-- auto screen scale factor -->
+153            <meta-data
+153-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:72:13-99
+154                android:name="android.app.auto_screen_scale_factor"
+154-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:72:24-75
+155                android:value="false" />
+155-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:72:76-97
+156            <!-- auto screen scale factor -->
+157
+158
+159            <!-- extract android style -->
+160            <!--
+161                 available android:values :
+162                * default - In most cases this will be the same as "full", but it can also be something else if needed, e.g., for compatibility reasons
+163                * full - useful QWidget & Quick Controls 1 apps
+164                * minimal - useful for Quick Controls 2 apps, it is much faster than "full"
+165                * none - useful for apps that don't use any of the above Qt modules
+166            -->
+167            <meta-data
+167-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:82:13-98
+168                android:name="android.app.extract_android_style"
+168-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:82:24-72
+169                android:value="default" />
+169-->F:\QT_code\QtShareBikeProject\QtShareBike9\Debug\android-build\AndroidManifest.xml:82:73-96
+170            <!-- extract android style -->
+171        </activity>
+172
+173        <!-- For adding service(s) please check: https://wiki.qt.io/AndroidServices -->
+174
+175        <activity
+175-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:23:9-28:67
+176            android:name="com.yzq.zxinglibrary.android.CaptureActivity"
+176-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:24:13-72
+177            android:configChanges="orientation|screenSize"
+177-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:25:13-59
+178            android:screenOrientation="portrait"
+178-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:26:13-49
+179            android:theme="@style/ZxingTheme"
+179-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:27:13-46
+180            android:windowSoftInputMode="adjustPan|stateHidden" />
+180-->[com.github.yuzhiqiang1993:zxing:2.1.4] C:\Users\wxn\.gradle\caches\transforms-2\files-2.1\74b10678c957e5e6e92b5259dbc8d06d\jetified-zxing-2.1.4\AndroidManifest.xml:28:13-64
+181    </application>
+182
+183</manifest>
