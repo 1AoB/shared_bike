@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>LoginPage.qml</file>
+        <file>MapWindow.qml</file>
+        <file>MsgDialog.qml</file>
+        <file>images/bike.gif</file>
+        <file>images/tip.png</file>
+        <file>RegisterPage.qml</file>
+        <file>qwebchannel.js</file>
+    </qresource>
+</RCC>
