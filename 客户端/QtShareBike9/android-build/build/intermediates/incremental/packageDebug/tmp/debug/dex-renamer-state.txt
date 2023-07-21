@@ -1,0 +1,4 @@
+#Sun Jul 02 16:05:21 GMT+08:00 2023
+base.0=F\:\\QT_code\\QtShareBikeProject\\QtShareBike2\\android-build\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

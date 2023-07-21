@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "F:\\QT_code\\QtShareBikeProject\\QtShareBike2\\android-build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "F:\\QT_code\\QtShareBikeProject\\QtShareBike2\\android-build\\res\\values\\libs.xml",
+                    "from": {
+                        "startLines": "-1,-1,13,-1",
+                        "startColumns": "-1,-1,4,-1",
+                        "startOffsets": "-1,-1,393,-1",
+                        "endLines": "-1,-1,27,-1",
+                        "endColumns": "-1,-1,12,-1",
+                        "endOffsets": "-1,-1,1171,-1"
+                    },
+                    "to": {
+                        "startLines": "2,5,8,23",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,142,408,1189",
+                        "endLines": "4,7,22,25",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "137,403,1184,1300"
+                    }
+                },
+                {
+                    "source": "F:\\Qt\\5.14.1\\android\\src\\android\\java\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "26,27,28,29",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "1305,1413,1535,1647",
+                        "endColumns": "107,121,111,97",
+                        "endOffsets": "1408,1530,1642,1740"
+                    }
+                }
+            ]
+        }
+    ]
+}
