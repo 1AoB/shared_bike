@@ -9,3 +9,7 @@
 
 
 qt的socket通信(Tcp,udp通信的过程,区别以及使用)(105节里面的)
+
+
+
+QTcpSocket无法连接，如果telnet，ping测试后都没问题，那可能是不在同一个局域网
