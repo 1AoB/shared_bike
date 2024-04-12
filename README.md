@@ -4,6 +4,15 @@
 
 ![image](https://github.com/1AoB/shared_bike/assets/78208268/8a89d729-286c-480b-82a0-7bca29e4e4a5)
 
+# 演示效果
+## 管理员登录
+![QQ录屏20240412173012 -original-original](https://github.com/1AoB/shared_bike/assets/78208268/77db1473-91ef-4c24-a1fa-0ded1070d9dd)
+## 用户注册
+
+## 用户登录
+
+## 用户骑行
+
 
 # 压力测试
 ![image](https://github.com/1AoB/shared_bike/assets/78208268/b72b02c5-c5cf-4573-acb8-7db37832c400)
