@@ -7,9 +7,10 @@
 # 演示效果
 ## 管理员登录
 ![QQ录屏20240412173012 -original-original](https://github.com/1AoB/shared_bike/assets/78208268/77db1473-91ef-4c24-a1fa-0ded1070d9dd)
-## 用户注册
+## 用户注册与登录
+![QQ录屏20240412173500 -original-original](https://github.com/1AoB/shared_bike/assets/78208268/5096c72c-74d9-4d8c-96f4-3fe6510ca75a)
 
-## 用户登录
+
 
 ## 用户骑行
 
